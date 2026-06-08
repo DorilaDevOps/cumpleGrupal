@@ -97,6 +97,7 @@
       --text-primary: #18181b;
       --text-secondary: #52525b;
       --text-muted: #71717a;
+      --text-verdeDorado: #463512;
       
       --border-color: rgba(139, 92, 246, 0.2);
       --border-strong: rgba(139, 92, 246, 0.4);
@@ -107,11 +108,12 @@
       
       --shadow-sm: 0 2px 8px rgba(139, 92, 246, 0.08);
       --shadow-md: 0 8px 24px rgba(139, 92, 246, 0.12);
+      --shadow-mdx: 2px 0px 12px 2px var(--text-secondary);
       --shadow-lg: 0 20px 50px rgba(139, 92, 246, 0.18);
       --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.3);
       
       --dot-color: rgba(24, 24, 27, 0.15);
-      --dots-pattern: radial-gradient(circle, var(--dot-color) 1.2px, transparent 1.2px);
+      --dots-pattern: radial-gradient(circle, var(--text-secondary) 1.5px, transparent 1.2px);
       --dots-size: 24px;
     }
     
@@ -126,7 +128,7 @@
       --text-primary: #fafafa;
       --text-secondary: #d4d4d8;
       --text-muted: #a1a1aa;
-      
+      --text-verdeDorado: #53b994;
       --border-color: rgba(167, 139, 250, 0.25);
       --border-strong: rgba(167, 139, 250, 0.5);
       
@@ -140,7 +142,7 @@
       --shadow-glow: 0 0 60px rgba(167, 139, 250, 0.5);
       
       --dot-color: rgba(250, 250, 250, 0.18);
-      --dots-pattern: radial-gradient(circle, var(--dot-color) 1.2px, transparent 1.2px);
+      --dots-pattern: radial-gradient(circle, var(--text-secondary) 1.5px, transparent 1.2px);
       --dots-size: 24px;
     }
     
@@ -226,7 +228,7 @@
         linear-gradient(#fff 0 0);
       mask-composite: exclude;
       -webkit-mask-composite: xor;
-      animation: rotateBorder 20s linear infinite;
+      animation: rotateBorder 10s ease-in-out infinite;
       filter: blur(0.5px);
     }
     
@@ -238,6 +240,7 @@
     }
     
     .dali-blob {
+      display: none;
       position: absolute;
       filter: blur(8px);
       opacity: 0.85;
@@ -325,10 +328,10 @@
       left: 12px;
       right: 12px;
       z-index: var(--z-header);
-      padding: var(--sp-xs) var(--sp-sm);
-      background: var(--bg-glass);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      padding: var(--sp-xs);
+      background: #8a50ee57;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-full);
       display: flex;
@@ -407,7 +410,7 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: var(--bg-tertiary);
+      /* background: var(--bg-tertiary); */
       border: 1px solid var(--border-color);
       position: relative;
       transition: all var(--transition-base);
@@ -474,14 +477,15 @@
       position: fixed;
       inset: 0;
       z-index: var(--z-mobile-menu);
-      background: var(--bg-menu);
-      backdrop-filter: blur(30px) saturate(180%);
-      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      /* background: var(--bg-menu); */
+      backdrop-filter: blur(18px) saturate(380%);
+      -webkit-backdrop-filter: blur(18px) saturate(380%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 100px 24px 40px;
+      gap:3rem;
       
       /* 🔧 FIX: Usamos variables CSS para el punto de origen, se actualizarán con JS */
       clip-path: circle(0% at var(--menu-origin-x, 90%) var(--menu-origin-y, 56px));
@@ -738,18 +742,18 @@
       width: 56px;
       height: 56px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--lila-500), var(--lila-700));
-      color: white;
+      /* background: linear-gradient(135deg, var(--lila-500), var(--lila-700)); */
+      color: var(--text-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: var(--shadow-md);
+      font-size: clamp(.6rem , 2.5vw, 1rem);
       opacity: 0;
       visibility: hidden;
       transform: translateY(20px) scale(0.8);
       transition: all var(--transition-base);
-      border: 2px solid var(--red-500);
+      border: 2px solid var(--accent-primary);
+      box-shadow: var(--shadow-mdx);
     }
     
     .scroll-top.visible {
@@ -761,7 +765,6 @@
     .scroll-top:hover {
       transform: translateY(-5px) scale(1.1);
       box-shadow: var(--shadow-lg);
-      background: linear-gradient(135deg, var(--red-500), var(--lila-600));
     }
     
     .scroll-top:active {
@@ -784,19 +787,20 @@
       text-align: center;
       padding: var(--sp-lg) var(--sp-md);
       position: relative;
+      gap:var(--fs-menu);
     }
     
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 20px;
+      padding: var(--sp-xs);
       background: var(--bg-glass);
       backdrop-filter: blur(10px);
       border: 1px solid var(--border-strong);
       border-radius: var(--radius-full);
-      font-size: var(--fs-small);
-      font-weight: 500;
+      font-size: var(--fs-h3);
+      font-weight: 200;
       color: var(--accent-primary);
       margin-bottom: var(--sp-md);
       animation: fadeDown 1s var(--ease-out) both;
@@ -818,19 +822,16 @@
     
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: var(fs-h1);
-      font-weight: 900;
+      font-size: var(--fs-h3);
       line-height: 0.95;
       letter-spacing: -0.03em;
-      margin-bottom: var(--sp-sm);
-      background: linear-gradient(135deg, var(--lila-500) 0%, var(--lila-700) 50%, var(--red-500) 100%);
+      background: var(--accent-detail);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: fadeUp 1s var(--ease-out) 0.2s both;
       position: relative;
     }
-    
+/*     
     .hero-title::after {
       content: '';
       position: absolute;
@@ -841,12 +842,12 @@
       height: 4px;
       background: linear-gradient(90deg, var(--red-500), var(--lila-500));
       border-radius: var(--radius-full);
-    }
+    } */
     
     .hero-subtitle {
       font-family: var(--famili_cursiva);
       font-size: var(--fs-h2);
-      color: var(--text-secondary);
+      color: var(--accent-detail);
       margin-bottom: var(--sp-md);
       animation: fadeUp 1s var(--ease-out) 0.4s both;
     }
@@ -856,14 +857,12 @@
       flex-wrap: wrap;
       gap: var(--sp-sm);
       justify-content: center;
-      <!-- margin: var(--sp-md) 0; -->
-      animation: fadeUp 1s var(--ease-out) 0.6s both;
     }
     
     .hero-name {
       padding: var(--sp-sm) var(--sp-md);
       background: var(--bg-card);
-      backdrop-filter: blur(20px);
+      /* backdrop-filter: blur(20px); */
       border: 2px solid var(--border-color);
       border-radius: var(--radius-lg);
       font-family: 'Playfair Display', serif;
@@ -875,6 +874,8 @@
       transition: all var(--transition-base);
       cursor: default;
       box-shadow: var(--shadow-sm);
+      animation: fadeRotate 1s var(--ease-out) infinite;
+      will-change: transform, opacity;
     }
     
     .hero-name::before {
@@ -898,9 +899,9 @@
       opacity: 1;
     }
     
-    .hero-name:nth-child(1) { animation: floatName 6s ease-in-out infinite; }
-    .hero-name:nth-child(2) { animation: floatName 6s ease-in-out infinite -2s; }
-    .hero-name:nth-child(3) { animation: floatName 6s ease-in-out infinite -4s; }
+    .hero-name:nth-child(1) { animation-delay: 0s; }
+    .hero-name:nth-child(2) { animation-delay: 0.2s; }
+    .hero-name:nth-child(3) { animation-delay: 0.4s; }
     
     @keyframes floatName {
       0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -909,9 +910,7 @@
     
     .hero-scroll {
       position: absolute;
-      bottom: var(--sp-md);
-      <!-- left: 50%; -->
-      transform: translateX(-50%);
+      bottom: var(--sp-md);     
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -946,8 +945,20 @@
     }
     
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0;transform: translate(0); }
+      to { opacity: 1; trantransformsform: translate(20px); }
+    }
+   
+        /* El único bloque de animación que necesitas */
+    @keyframes fadeRotate {
+      0% { 
+        opacity: 0;
+        transform: translate(0, 0) rotate(0deg); 
+      }
+      100% { 
+        opacity: 1; 
+        transform: translate(15px, 15px) rotate(360deg); 
+      }
     }
     
     @keyframes fadeDown {
@@ -988,11 +999,11 @@
       font-weight: 900;
       line-height: 1.1;
       margin-bottom: var(--sp-xs);
-      color: var(--text-primary);
+      color: var(--accent-detail);
     }
     
     .section-title-accent {
-      background: linear-gradient(135deg, var(--lila-500), var(--red-500));
+      background: var(--accent-detail);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -1001,7 +1012,7 @@
     
     .section-subtitle {
       font-size: var(--fs-body);
-      color: var(--text-secondary);
+      color: var(--accent-detail);
       max-width: 600px;
       margin: 0 auto;
     }
@@ -1145,7 +1156,7 @@
       overflow: hidden;
     }
     
-    .details-card::before {
+    /* .details-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -1155,7 +1166,7 @@
       background: linear-gradient(90deg, var(--lila-500), var(--red-500), var(--lila-500));
       background-size: 200% 100%;
       animation: gradientMove 4s linear infinite;
-    }
+    } */
     
     @keyframes gradientMove {
       0% { background-position: 0% 0%; }
@@ -1342,13 +1353,13 @@
   opacity: 1;
 }
 
-    <!-- .gallery-item-placeholder { -->
+    /* <!-- .gallery-item-placeholder { -->
       <!-- position: absolute; -->
       <!-- inset: 0; -->
       <!-- background: linear-gradient(90deg, var(--bg-tertiary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%); -->
       <!-- background-size: 200% 100%; -->
       <!-- animation: shimmer 1.5s infinite; -->
-    <!-- } -->
+    <!-- } --> */
     
     @keyframes shimmer {
       0% { background-position: 200% 0; }
@@ -1417,8 +1428,7 @@
     }
     
     .footer {
-      margin-top: var(--sp-sm);
-      <!-- padding: var(--sp-lg) var(--sp-md) var(--sp-md); -->
+      margin-top: var(--sp-lg);
       background: var(--bg-card);
       backdrop-filter: blur(20px);
       border-top: 1px solid var(--border-color);
@@ -1428,7 +1438,7 @@
     
     .footer-content {
       max-width: 800px;
-      margin: 0 auto;
+      margin: 1.5rem auto;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1448,22 +1458,29 @@
       box-shadow: var(--shadow-md);
       border: 3px solid var(--bg-primary);
       transition: transform var(--transition-base);
+
+      & img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 50%;
+      }
     }
     
     .footer-logo:hover {
       transform: rotate(360deg) scale(1.1);
     }
-    
+    .footer-details{color:var( --text-verdeDorado);}
+
     .footer-text {
       font-family: 'Playfair Display', serif;
       font-size: var(--fs-h3);
       font-weight: 700;
-      color: var(--text-primary);
     }
     
     .footer-subtext {
       font-size: var(--fs-small);
-      color: var(--text-secondary);
       max-width: 500px;
     }
     
@@ -1549,7 +1566,6 @@
         height: 48px;
         bottom: 16px;
         left: 16px;
-        font-size: 1.2rem;
       }
       .details-card { padding: var(--sp-sm); }
       .mobile-menu-link { padding: var(--sp-xs); }
@@ -1580,7 +1596,7 @@
       <div class="header-brand-icon">
         <img src="assetsIn/escudocel  2.jpg" alt="logo escudo" name="escudo" title="escudo"/>
       </div>
-      <span>Fiestita grupal</span>
+      <h1 class="hero-title">Cumpleaños Grupal</h1>
     </div>
     <nav class="header-nav" aria-label="Navegación principal">
       <a href="#festejados" class="header-link">Festejados</a>
@@ -1605,13 +1621,13 @@
       <li class="mobile-menu-item">
         <a href="#festejados" class="mobile-menu-link">
           <span class="mobile-menu-link-icon">🎂</span>
-          <span>Festejados</span>
+          <span>Cumpleañeros</span>
         </a>
       </li>
       <li class="mobile-menu-item">
         <a href="#evento" class="mobile-menu-link">
           <span class="mobile-menu-link-icon">📅</span>
-          <span>Evento</span>
+          <span>Donde?</span>
         </a>
       </li>
       <li class="mobile-menu-item">
@@ -1627,17 +1643,12 @@
     </div>
   </nav>
   
-  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">Sube</button>
   
   <main class="main">
     
     <section class="hero">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        <span>Estás oficialmente invitado</span>
-      </div>
       
-      <h1 class="hero-title">Cumpleaños<br>Grupal</h1>
       <p class="hero-subtitle">Una noche, tres celebraciones</p>
       
       <div class="hero-names">
@@ -1646,6 +1657,13 @@
         <div class="hero-name">Conde</div>
       </div>
       
+      
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Invitación Oficial</span>
+      </div> 
+
+
       <div class="hero-scroll">
         <span>Descubrí más</span>
         <div class="hero-scroll-line"></div>
@@ -1653,16 +1671,16 @@
     </section>
     
     <section class="section" id="festejados">
+
       <div class="section-header reveal">
-        <span class="section-tag">Los protagonistas</span>
-        <h2 class="section-title">Los <span class="section-title-accent">Festejados</span></h2>
-        <p class="section-subtitle">Tres personas especiales que celebran un año más de vida, amistad y momentos inolvidables</p>
+        <span class="hero-badge-dot"></span>
+        <h2 class="section-title">Los <span class="section-title-accent">Cumpleañeros</span></h2>
+        <p class="section-subtitle"> del primero al último</p>
       </div>
       
       <div class="people-grid">
         <article class="person-card reveal reveal-delay-1">
           <div class="person-card-image">
-            <div class="person-card-badge">Festejado</div>
             <img src="assetsIn/anfitrionFoto.jpeg" alt="Andres" loading="lazy">
           </div>
           <div class="person-card-content">
@@ -1673,7 +1691,6 @@
         
         <article class="person-card reveal reveal-delay-2">
           <div class="person-card-image">
-            <div class="person-card-badge">Festejada</div>
             <img src="assetsIn/IMG-20150627-WA0006.jpg" alt="Caniba" loading="lazy">
           </div>
           <div class="person-card-content">
@@ -1684,7 +1701,6 @@
         
         <article class="person-card reveal reveal-delay-3">
           <div class="person-card-image">
-            <div class="person-card-badge">Festejado</div>
             <img src="assetsIn/cajas.jpg" alt="Conde" loading="lazy">
           </div>
           <div class="person-card-content">
@@ -1697,9 +1713,8 @@
     
     <section class="section" id="evento">
       <div class="section-header reveal">
-        <span class="section-tag">Información</span>
         <h2 class="section-title">Detalles del <span class="section-title-accent">Evento</span></h2>
-        <p class="section-subtitle">Todo lo que necesitás saber para no perderte detalle de esta celebración</p>
+        <p class="section-subtitle">Lo que necesitás saber</p>
       </div>
       
       <div class="details-card reveal">
@@ -1708,16 +1723,8 @@
             <div class="detail-icon">📅</div>
             <div class="detail-content">
               <h3>Fecha</h3>
-              <p>Sábado 20 de Junio, 2026</p>
-			  <p>con suerte</p>
-            </div>
-          </div>
-          
-          <div class="detail-item">
-            <div class="detail-icon">⏰</div>
-            <div class="detail-content">
-              <h3>Hora</h3>
-              <p>12:38 hs de la madrugada en adelante</p>
+              <p>Sábado 20 de Junio, 2026</p>              
+              <p>12:30 hs de la madrugada.</p>
             </div>
           </div>
           
@@ -1725,39 +1732,49 @@
             <div class="detail-icon">📍</div>
             <div class="detail-content">
 				  <h3>Lugar</h3>
-				  <p>Salón de Eventos "La Fiesta"</p>
+				  <p>"En las casas"</p>
 				  <div class="contenedor-mapa">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.8201867567527!2d-56.218748129774504!3d-34.85170307419144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a1d56a809c6371%3A0x68baae08ebdcdbe4!2sKikiriya_DevOps!5e1!3m2!1ses!2suy!4v1780681130313!5m2!1ses!2suy" 
-					width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-					</iframe>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1296.0297129999958!2d-56.21567173030265!3d-34.851695998304166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDUxJzA2LjEiUyA1NsKwMTInNTQuMSJX!5e1!3m2!1ses!2suy!4v1780935875580!5m2!1ses!2suy" 
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
 				</div>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <div class="detail-icon">🥂</div>
+            <div class="detail-content">
+              <h3>Bebidas</h3>
+              <p>Si tienen a mano traigan, o lo que sea sirve.  </p>
             </div>
           </div>
           
           <div class="detail-item">
             <div class="detail-icon">🎵</div>
             <div class="detail-content">
-              <h3>Tú música preereida</h3>
-              <p>Si llevan su casette</p>
+              <h3>Tú música prefereida</h3>
+              <p>Si traen su casete</p>
+            </div>
+          </div>
+           
+          <div class="detail-item">
+            <div class="detail-icon">💊</div>
+            <div class="detail-content">
+              <h3>Medicamentos</h3>
+              <p>No olvidarse!  </p>
             </div>
           </div>
           
-          <div class="detail-item">
-            <div class="detail-icon">🎁</div>
-            <div class="detail-content">
-              <h3>Tu presencia</h3>
-              <p>Es el mejor regalo que podemos recibir</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
     
     <section class="section" id="galeria">
       <div class="section-header reveal">
-        <span class="section-tag">Momentos</span>
         <h2 class="section-title">Nuestra <span class="section-title-accent">Galería</span></h2>
-        <p class="section-subtitle">Un adelanto de los momentos que nos unen y los que están por venir</p>
+        <p class="section-subtitle">Un adelanto de los momentos que nos unen, así se les van las gans de venir.</p>
       </div>
       
       <div class="gallery-grid" id="galleryGrid"></div>
@@ -1774,9 +1791,8 @@
   
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-logo" aria-label="Logo">🎂</div>
       
-      <div>
+      <div class="footer-details">
         <h3 class="footer-text">¡Te esperamos!</h3>
         <p class="footer-subtext">Vení a soplar las velitas y prepárense para ser el centro de las burlas!</p>
         <p class="footer-subtext">Juntar a tantos cumpleañeros en una sola tarde es peligroso, pero imperdible!</p>
@@ -1785,13 +1801,14 @@
       <div class="footer-controls">
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
           <span class="theme-toggle-icon" id="themeIcon">☀️</span>
-          <span id="themeLabel">Modo claro</span>
+          <span id="themeLabel">Modo</span>
         </button>
       </div>
+      <div class="footer-logo" aria-label="Logo"> <img src="assetsIn/escudocel  2.jpg" alt="Logo"> </div>
       
       <div class="footer-bottom">
         <p>Hecho con <span class="footer-bottom-heart">♥</span> para Andres, Canibal y Conde</p>
-        <p style="margin-top: 8px; color:blue;">© 2026 · Que tarde teté !</p>
+        <p style="margin-top: 8px; color:var(--text-primary)">© 2026 · Que tarde teté !</p>
       </div>
     </div>
   </footer>
@@ -1975,7 +1992,7 @@ function setupLazyLoading() {
       function updateHeader() {
         const currentScrollY = window.scrollY;
         
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        if (currentScrollY > lastScrollY && currentScrollY > 120) {
           header.classList.add('hidden');
         } else {
           header.classList.remove('hidden');
@@ -2124,10 +2141,10 @@ function setupLazyLoading() {
         body.setAttribute('data-theme', theme);
         if (theme === 'dark') {
           themeIcon.textContent = '☀️';
-          themeLabel.textContent = 'Modo claro';
+          themeLabel.textContent = 'Modo clarete';
         } else {
           themeIcon.textContent = '🌙';
-          themeLabel.textContent = 'Modo oscuro';
+          themeLabel.textContent = 'Modo tinto';
         }
       }
       
