@@ -3,11 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="description" content="Invitación de cumpleaños grupal - Andres, Caniba y Conde">
+  <meta name="description" content="Invitación de cumpleaños grupal - Andres, Canibal y Conde">
   <meta name="theme-color" content="#0a0a0a">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="language" content="Spanish">
+    <meta name="author" content="Kikiriya DevOps by Andres">
+
   <title>🎉 Cumpleaños de Andres, Canibal y Conde</title>
   <link rel="icon" type="image/png" href="assetsIn/bird1.png">
   
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Invitación de cumpleaños grupal - Andres, Canibal y Conde">
+    <meta property="og:image" content="assetsIn/bird1.png">
+  <meta property="og:image:alt" content="tarjeta de invitacion">
+
+  <meta property="og:locale" content="es_UY">
+  <meta property="og:locale:alternate" content="es_ES">
   
     <script src="https://googleapis.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -558,7 +570,20 @@
       transform: translateY(60px) rotate(-15deg) scale(0.5);
       transition: all 0.6s var(--ease-crazy);
     }
-    
+
+    .pMobile_info{      
+      opacity: 0;
+      transform: translateY(60px) rotate(-15deg) scale(0.0);
+      transition: all 0.6s var(--ease-crazy);
+      will-change: opacity, transform;
+    }
+    .mobile-menu.active .pMobile_info{
+      opacity: 1;
+      transform: translateY(0) rotate(0deg) scale(1);
+      transition-delay: 0.45s;
+      animation: crazyIn1 0.8s var(--ease-crazy) 0.15s backwards;
+    }
+
     .mobile-menu.active .mobile-menu-item {
       opacity: 1;
       transform: translateY(0) rotate(0deg) scale(1);
@@ -705,7 +730,7 @@
     
     .mobile-menu-footer small {
       font-size: var(--fs-tiny);
-      color: var(--text-muted);
+      color: var(--text-primary);
       letter-spacing: 0.2em;
       text-transform: uppercase;
     }
@@ -1015,6 +1040,7 @@
       color: var(--accent-detail);
       max-width: 600px;
       margin: 0 auto;
+      line-height: 1.9;
     }
     
     .people-grid {
@@ -1027,7 +1053,7 @@
     
     @media (min-width: 640px) {
       .people-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
     }
     
@@ -1084,7 +1110,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, var(--bg-primary) 0%, transparent 50%);
+      background: linear-gradient(to top, var(--bg-primary) 0%, transparent 30%);
       pointer-events: none;
     }
     
@@ -1105,7 +1131,6 @@
     }
     
     .person-card-content {
-      <!-- padding: var(--sp-md); -->
       text-align: center;
       position: relative;
     }
@@ -1434,6 +1459,7 @@
       border-top: 1px solid var(--border-color);
       text-align: center;
       position: relative;
+      margin: var(--sp-lg) 0px;
     }
     
     .footer-content {
@@ -1443,6 +1469,7 @@
       flex-direction: column;
       align-items: center;
       gap: var(--sp-md);
+      /* padding: var(--sp-lg) var(--sp-md); */
     }
     
     .footer-logo {
@@ -1617,6 +1644,9 @@
   </header>
   
   <nav class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Menú móvil">
+    
+      <p class="pMobile_info">Sabado 20 Junio - 13:00 hs </p>
+
     <ul class="mobile-menu-list">
       <li class="mobile-menu-item">
         <a href="#festejados" class="mobile-menu-link">
@@ -1663,7 +1693,6 @@
         <span>Invitación Oficial</span>
       </div> 
 
-
       <div class="hero-scroll">
         <span>Descubrí más</span>
         <div class="hero-scroll-line"></div>
@@ -1685,7 +1714,7 @@
           </div>
           <div class="person-card-content">
             <h3 class="person-card-name">Andrés</h3>
-            <p class="person-card-desc">Si me ves caminando, llamá a la policía: me la robaron la moto</p>
+            <p class="person-card-desc">Si me ves caminando, llamá a la policía: me robaron la moto</p>
           </div>
         </article>
         
@@ -1747,7 +1776,7 @@
             <div class="detail-icon">🥂</div>
             <div class="detail-content">
               <h3>Bebidas</h3>
-              <p>Si tienen a mano traigan, o lo que sea sirve.  </p>
+              <p>Si tienen a mano traigan, o lo que sea, todo sirve.  </p>
             </div>
           </div>
           
@@ -1774,7 +1803,7 @@
     <section class="section" id="galeria">
       <div class="section-header reveal">
         <h2 class="section-title">Nuestra <span class="section-title-accent">Galería</span></h2>
-        <p class="section-subtitle">Un adelanto de los momentos que nos unen, así se les van las gans de venir.</p>
+        <p class="section-subtitle">Un adelanto de los momentos que nos unen, así se les van las ganas de venir.</p>
       </div>
       
       <div class="gallery-grid" id="galleryGrid"></div>
@@ -1808,7 +1837,7 @@
       
       <div class="footer-bottom">
         <p>Hecho con <span class="footer-bottom-heart">♥</span> para Andres, Canibal y Conde</p>
-        <p style="margin-top: 8px; color:var(--text-primary)">© 2026 · Que tarde teté !</p>
+        <p style="margin-top: 8px; color:var(--text-primary)">© 2026 · Que tarde Teté !</p>
       </div>
     </div>
   </footer>
