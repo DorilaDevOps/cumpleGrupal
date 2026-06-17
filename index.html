@@ -8,34 +8,33 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
   <meta name="language" content="Spanish">
-    <meta name="author" content="Kikiriya DevOps by Andres">
+  <meta name="author" content="Kikiriya DevOps by Andres">
 
   <title>🎉 Cumpleaños de Andres, Canibal, Conde y Tomasito</title>
+  <link rel="canonical" href="https://cumplimos.netlify.app/">
   <link rel="icon" type="image/webp" href="assetsIn/logo103.webp">
-  
+
   <meta property="og:type" content="website">
   <meta property="og:title" content="🦴 Invitación de fiestita grupal - Andres, Canibal, Conde y Tomasito">
-  <meta property="og:description" content="Vení a soplar las velitas. Sábado 20 de Junio, 12:30 hs de la madrugada." />
-  <meta property="og:url" content="https://cumplimos.netlify.app/" />
-  <meta property="og:image" content="https://cumplimos.netlify.app/assetsin/escudocel.jpg" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1200" />
- <meta property="og:image:height" content="630" />
+  <meta property="og:description" content="Vení a soplar las velitas. Sábado 20 de Junio, 12:30 hs de la madrugada.">
+  <meta property="og:url" content="https://cumplimos.netlify.app/">
+  <meta property="og:image" content="https://cumplimos.netlify.app/assetsIn/escudocel.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="es_UY">
   <meta property="og:locale:alternate" content="es_ES">
-  
-  <!-- Etiquetas para X / Twitter -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="🦴¡Te esperamos en nuestro Cumpleaños!" />
-	<meta name="twitter:description" content="Vení a soplar las velitas. Sábado 20 de Junio, 12:30 hs." />
-	<meta name="twitter:image" content="https://cumplimos.netlify.app/assetsin/escudocel.jpg" />
 
-  
-    <script src="https://googleapis.com"></script>
+  <!-- Etiquetas para X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🦴¡Te esperamos en nuestro Cumpleaños!">
+  <meta name="twitter:description" content="Vení a soplar las velitas. Sábado 20 de Junio, 12:30 hs.">
+  <meta name="twitter:image" content="https://cumplimos.netlify.app/assetsIn/escudocel.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
       --lila-50: #f5f3ff;
@@ -938,11 +937,6 @@
     .hero-name:nth-child(2) { animation-delay: 0.2s; }
     .hero-name:nth-child(3) { animation-delay: 0.4s; }
     
-    @keyframes floatName {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(1deg); }
-    }
-    
     .hero-scroll {
       position: absolute;
       bottom: var(--sp-md);     
@@ -980,8 +974,8 @@
     }
     
     @keyframes fadeUp {
-      from { opacity: 0;transform: translate(0); }
-      to { opacity: 1; trantransformsform: translate(20px); }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
    
         /* El único bloque de animación que necesitas */
@@ -1147,7 +1141,7 @@
     
     .person-card-name {
       font-family: 'Playfair Display', serif;
-      font-size: var(fs-tiny);
+      font-size: var(--fs-h4);
       font-weight: 700;
       margin-bottom: var(--sp-xs);
       color: var(--text-primary);
@@ -1338,7 +1332,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s var(--ease-out);
+      opacity: 0;
+      transition: transform 0.6s var(--ease-out), opacity 0.5s ease;
+    }
+    
+    .gallery-item img.loaded {
+      opacity: 1;
     }
     
     .gallery-item:hover img {
@@ -1366,35 +1365,15 @@
       font-weight: 500;
     }
     
-	.gallery-item-placeholder {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: blur(20px);
-  transform: scale(1.1); /* Evita bordes borrosos */
-  transition: opacity 0.5s ease;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.gallery-item img.loaded {
-  opacity: 1;
-}
-
-    /* <!-- .gallery-item-placeholder { -->
-      <!-- position: absolute; -->
-      <!-- inset: 0; -->
-      <!-- background: linear-gradient(90deg, var(--bg-tertiary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%); -->
-      <!-- background-size: 200% 100%; -->
-      <!-- animation: shimmer 1.5s infinite; -->
-    <!-- } --> */
+    .gallery-item-placeholder {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px);
+      transform: scale(1.1); /* Evita bordes borrosos */
+      transition: opacity 0.5s ease;
+    }
     
     @keyframes shimmer {
       0% { background-position: 200% 0; }
@@ -1894,7 +1873,7 @@
       { src: 'assetsIn/cumple (26).jpg', alt: 'Mesa decorada', caption: 'Mesa festiva',srcTiny: 'assetsIn/bird1.png' },
       { src: 'assetsIn/cumple (27).jpg', alt: 'Mesa decorada', caption: 'Mesa festiva',srcTiny: 'assetsIn/bird1.png' },
       { src: 'assetsIn/cumple (28).jpg', alt: 'Amigos celebrando', caption: 'Amigos unidos',srcTiny: 'assetsIn/bird1.png' },
-      { src: 'assetsIn/cumple (29).jpg', alt: 'Mesa decorada', caption: 'Mesa festiva',srcTiny: 'assetsIn/bird1.png' },,
+      { src: 'assetsIn/cumple (29).jpg', alt: 'Mesa decorada', caption: 'Mesa festiva',srcTiny: 'assetsIn/bird1.png' },
       { src: 'assetsIn/cumple (30).jpg', alt: 'Fiesta con luces', caption: 'Noche mágica',srcTiny: 'assetsIn/bird1.png' },
       { src: 'assetsIn/cumple (31).jpg', alt: 'Amigos celebrando', caption: 'Amigos unidos',srcTiny: 'assetsIn/bird1.png' },
       { src: 'assetsIn/cumple (32).jpg', alt: 'Mesa decorada', caption: 'Mesa festiva',srcTiny: 'assetsIn/bird1.png' },
@@ -1903,86 +1882,37 @@
       { src: 'assetsIn/cumple (35).jpg', alt: 'Regalos de cumpleaños', caption: 'Sorpresa tras sorpresa',srcTiny: 'assetsIn/bird1.png' }
     ];
     function renderGallery() {
-  const grid = document.getElementById('galleryGrid');
-  if (!grid) return;
-  
-  const fragment = document.createDocumentFragment();
-  
-  galleryData.forEach((item, index) => {
-    const galleryItem = document.createElement('div');
-    galleryItem.className = 'gallery-item reveal';
-    galleryItem.style.transitionDelay = `${(index % 4) * 0.1}s`;
-    galleryItem.dataset.index = index;
-    
-    // Determinar si es imagen crítica (primeras 4)
-    const isCritical = index < 4;
-    
-	galleryItem.innerHTML = `
-	  <div class="gallery-item-placeholder" style="background-image: url(${item.srcTiny})"></div>
-	  <img 
-		src="${item.src}" 
-		srcset="
-		  ${item.src}?w=400 400w,
-		  ${item.src}?w=800 800w,
-		  ${item.src}?w=1200 1200w
-		"
-		sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-		alt="${item.alt}" 
-		loading="lazy"
-		decoding="async"
-	  >
-	  <div class="gallery-item-overlay">
-		<span class="gallery-item-caption">${item.caption}</span>
-	  </div>
-	`;    
-    fragment.appendChild(galleryItem);
-  });
-  
-  grid.appendChild(fragment);
-  observeElements();
-  setupOptimizedLazyLoading();
-}
+      const grid = document.getElementById('galleryGrid');
+      if (!grid) return;
 
-function setupOptimizedLazyLoading() {
-  const images = document.querySelectorAll('.gallery-item img[data-src]');
-  
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        const src = img.getAttribute('data-src');
-        const placeholder = img.previousElementSibling;
-        
-        // Precargar
-        const tempImg = new Image();
-        tempImg.src = src;
-        
-        tempImg.onload = () => {
-          img.src = src;
-          img.removeAttribute('data-src');
-          img.classList.add('loaded');
-          
-          if (placeholder) {
-            placeholder.style.opacity = '0';
-            setTimeout(() => placeholder.remove(), 500);
-          }
-          
-          observer.unobserve(img);
-        };
-        
-        tempImg.onerror = () => {
-          console.error('Error loading image:', src);
-        };
-      }
-    });
-  }, { 
-    rootMargin: '300px 0px', // Cargar 300px antes
-    threshold: 0 
-  });
-  
-  images.forEach(img => imageObserver.observe(img));
-}
-    
+      const fragment = document.createDocumentFragment();
+
+      galleryData.forEach((item, index) => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item reveal';
+        galleryItem.style.transitionDelay = `${(index % 4) * 0.1}s`;
+        galleryItem.dataset.index = index;
+
+        galleryItem.innerHTML = `
+          <div class="gallery-item-placeholder" style="background-image: url(${item.srcTiny})"></div>
+          <img
+            src="${item.src}"
+            alt="${item.alt}"
+            loading="lazy"
+            decoding="async"
+          >
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">${item.caption}</span>
+          </div>
+        `;
+        fragment.appendChild(galleryItem);
+      });
+
+      grid.appendChild(fragment);
+      observeElements();
+      setupLazyLoading();
+    }
+
     function observeElements() {
       const observerOptions = {
         threshold: 0.15,
@@ -2003,18 +1933,7 @@ function setupOptimizedLazyLoading() {
       });
     }
     
-	function preloadCriticalImages() {
-  // Precargar las primeras 4 imágenes
-  galleryData.slice(0, 4).forEach((item, index) => {
-    const link = document.createElement('link');
-    link.rel = index === 0 ? 'preload' : 'prefetch';
-    link.as = 'image';
-    link.href = item.src;
-    document.head.appendChild(link);
-  });
-}
-
-function setupLazyLoading() {
+    function setupLazyLoading() {
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
